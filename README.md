@@ -1,2 +1,55 @@
 # JS-Training-Sait
-Sample practice project with JS
+
+# Feature list
+  - creating header
+  - creating sign-up and login button
+  - add animation boder to menu items
+  - creating drop-down menu
+  - shaw and hide drop-down 
+  - creating and showing popup
+  - close modal with icon
+  - adding overlay for closing modal
+  - creating form 
+  - validating email
+  - validating username with regx
+  - adding recaptha to login
+  - responsive menu
+  - showing hamburger menu
+  - closing hamburger menu
+  - completing hamburger menu
+  - adding top bar 
+  - sticky nav
+  - designing count down
+  - claculating count down
+  - designing search form
+  - showing search form
+  - adding web speech api
+  - create seprator
+  - creting courser box
+  - completeing courser design
+  - responsive featured course
+  - showing featured course box when scroll happen
+  - back to top 
+  - desiging shopping box cart
+  - toggle shopping cart box
+  - showing items in sopping cart 
+  - designing checkout button
+  - calculating sum of items in shopping cart
+  - showing numbers of items in shopping cart
+  - removing item from shopping cart
+  - creating add to bascket function 
+  - adding item to shopping cart
+  - desiging newest course container
+  - implementing infinity course slider
+  - fixing scroll feature course
+  - designing user comments 
+  - showing dots comments
+  - adding click to dots
+  - adding infinity loop for comments
+  - adding glass div
+  - adding magnify 
+  - adding study mode
+  - desiginig course section
+  - creating accordian for season course
+  - fixed study mode button
+  - fixed course detail info
