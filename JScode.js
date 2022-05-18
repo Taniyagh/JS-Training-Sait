@@ -273,5 +273,15 @@ window.onload=function(){
 	function toggleShoppingCartBox(){
 		shoppingCartBox.classList.toggle('active');
 	}
+
+	const cousesPrice=shoppingCartBox.querySelectorAll('.item-price');
+
+	let sum=0;
+	cousesPrice.forEach(course=>{
+		sum+=Number(course.innerText.match(/\d+/))
+	
+	})
+	const totalShoppingCart=shoppingCartBox.querySelector('.shopping-cart-total');
+	totalShoppingCart.innerText=`${sum} تومان`
 	/*shopping cart*/
 }
