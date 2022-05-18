@@ -5,7 +5,7 @@
   - creating sign-up and login button
   - add animation boder to menu items
   - creating drop-down menu
-  - shaw and hide drop-down 
+  - show and hide drop-down 
   - creating and showing popup
   - close modal with icon
   - adding overlay for closing modal
@@ -20,19 +20,19 @@
   - adding top bar 
   - sticky nav
   - designing count down
-  - claculating count down
+  - calculating count down
   - designing search form
   - showing search form
   - adding web speech api
-  - create seprator
-  - creting courser box
-  - completeing courser design
+  - creating seprator
+  - creating courser box
+  - completing courser design
   - responsive featured course
   - showing featured course box when scroll happen
   - back to top 
   - desiging shopping box cart
   - toggle shopping cart box
-  - showing items in sopping cart 
+  - showing items in shopping cart 
   - designing checkout button
   - calculating sum of items in shopping cart
   - showing numbers of items in shopping cart
