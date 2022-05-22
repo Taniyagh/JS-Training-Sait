@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Course Details</title>
+        <link   rel="stylesheet"    href='StyleSheet.css'/>
+        <script src="https://kit.fontawesome.com/dcc01789cf.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class='overlay'></div>
+        <!-- topbar-->
+            <div class='topbar'>
+                <div class='topbar-row'>
+                    <div class='topbar-items'>
+                        <ul>
+                            <li>
+                                <a href='#' class='mini-cart-opener'>
+                                    <i class='fas fa-shopping-bag'></i>
+                                    <span class='reactapp-cart-number'>0</span>
+                                </a>
+                                <!--shopping-cart-box-->
+                                    <div class='shopping-cart-box'>
+                                        <!-- shopping cart items -->
+                                            <div class='shopping-cart-items'>
+                                                <div class='shopping-cart-item'>
+                                                                                                 
+                                                </div>
+                                                <div class='shopping-cart-item'>
+                                                                                              
+                                                </div>
+                                            </div>
+                                        <!-- shopping cart items -->
+                                        <!-- shopping cart bottom -->
+                                            <div class='shopping-cart-bottom'>
+                                                <div class='shopping-cart-total'>
+                                                      0
+                                                </div>
+                                                <div class='shopping-cart-buttons'>
+                                                    <a href='https://reactapp.ir/cart' class='button wc-forward'>مشاهده سبد خرید</a>
+                                                    <a href='https://reactapp.ir/checkout/' class='button checkout wc-forward'>تسویه حساب </a>
+                                                
+                                                </div>
+                                            </div>
+                                        <!-- shopping cart bottom -->
+                                    </div>
+                                <!--shopping-cart-box-->
+                            </li>
+                            <li><i class='fas fa-search' id='toggleSearch'></i></li>
+                            <li>درباره ما</li>
+                            <li>تماس با ما</li>
+                        </ul>
+                    </div>
+                    <div class='topbar-items-mobile'>
+                        <li>
+                            <i class='fas fa-shopping-bag'></i>
+                            <span class='reactapp-cart-number'>0</span>
+                        </li>
+                        <li>
+                            <i class='fas fa-user-circle'></i>
+                        </li>
+                        <li></li>
+                        <li></li>
+                    </div> 
+                </div>            
+            </div>
+        <!-- topbar-->
+        <!--global-header -->
+        <header class="global-header">
+            <!--header-row -->
+            <div class="header-row">
+                <!--global-logo -->
+                <div class="global-logo">
+                    <a href="#">
+                        <img src="logo.png"/>
+                    </a>
+                </div>
+                <!--global-logo -->
+                <!--nav-menu -->
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#">صفحه اصلی</a></li>
+                        <li><a href="#" id="courses">دوره ها</a><i class="fa fa-angle-down"></i></li>
+                        <!-- sub-nav -->
+                        <div class="sub-nav">
+                            <div class='sub-nav-col left'>
+                            <a href="#" class="sub-nav-box" id="box1">
+                                <div class="icon-background" id='icon-1'>
+                                    <i class="fab fa-sellsy icon"></i>
+                                </div>
+                                <h4>راهنماي يادگيري</h4>
+                                <p>گام هاي يادگيري</p>
+                            </a>
+                            <a href="#" class="sub-nav-box" id="box2">
+                                <div class="icon-background" id='icon-2'>
+                                    <i class="fab fa-sellsy icon"></i>
+                                </div>
+                                <h4>راهنماي يادگيري</h4>
+                                <p>گام هاي يادگيري</p>
+                            </a>
+                            </div>
+                            <div class='sub-nav-col right'>
+                            <a href="#" class="sub-nav-box" id="box3">
+                                <div class="icon-background" id='icon-3'>
+                                    <i class="fab fa-sellsy icon"></i>
+                                </div>
+                                <h4>راهنماي يادگيري</h4>
+                                <p>گام هاي يادگيري</p>
+                            </a>
+                            <a href="#" class="sub-nav-box" id="box4">
+                                <div class="icon-background" id='icon-4'>
+                                    <i class="fab fa-sellsy icon"></i>
+                                </div>
+                                <h4>راهنماي يادگيري</h4>
+                                <p>گام هاي يادگيري</p>
+                            </a>
+                            </div>
+                        </div>
+                        <!-- sub-nav -->
+                        <li><a href="#">بلاگ</a></li>
+                        <li><a href="#">تالار گفتمان</a></li>
+                        <li><a href="#">کانال تلگرام</a></li>    
+                    </ul>
+                </nav>
+                <!--nav-menu -->
+                <!--signup-button -->
+                <div class="header-button-link">
+                    <i class="fas fa-user-lock"></i>
+                    <span>ورود و ثبت نام</span>
+                </div>
+                <!--signup-button -->
+                <!--menu icon -->
+                <div class='menu-icon'>
+                <i class='fa fa-bars' id='openMenu'></i>
+                <i class='fa fa-times' id='closeMenu'></i>
+                </div>
+                <!--menu icon -->
+            </div>
+            <!--header-row -->
+            <!--search-row -->
+            <div class='search-row'>
+                <form class='search-form' method='get' action='https://reactapp.ir'>
+                    <input type='search' class='search-input' placeholder='جستجوی دوره،مطالب و...' value='' name='s'/>
+                    <button type='submit' class='submit'>
+                        <i class='fa fa-search'></i>
+                    </button>
+                </form>
+            </div>
+            <!--search-row -->
+        </header>
+        <!--global-header -->
+        <!-- Hamburger-menu-->
+        <nav id='nav'>
+            <ul>    
+                <li>
+                    <form role='search' method='get' class='search-form' action='https://reactapp.ir/'>
+                        <input type='search' class='search-field' placeholder='کلید واژه را وارد کنید...' value='' name='s' title='جستجو برای:'/>
+                        <button type='submit' class='search-submit'>
+                            <i class='fas fa-search-plus'></i>
+                        </button>
+                    </form>
+                </li>
+                <li>
+                    <div class='off-convas-cart'>
+                        <a href='https://reactapp.ir/cart/' class='cart-icon-link'>
+                            <span class='bag-icon'>
+                                <svg class="bag-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                                    <path d="M93.064,44.523l3.5,58.432H31.437l3.804-58.432h6.239l-0.304,6.543l0,0l-2.587,45.346h51.584l-2.891-45.346
+                                            h-6.848v6.391h-6.543V41.328c0-2.839-0.939-5.174-2.815-7c-1.878-1.826-4.185-2.739-6.924-2.739s-5.048,0.913-6.924,2.739
+                                            c-1.878,1.826-2.815,4.161-2.815,7v3.195h12.934v6.543H54.414v6.391h-6.543V41.328c0-4.565,1.571-8.419,4.717-11.565
+                                            c3.144-3.143,7-4.717,11.565-4.717c4.565,0,8.419,1.574,11.564,4.717c3.144,3.146,4.718,7,4.718,11.565v3.195H93.064z"></path>
+                                </svg>
+                            </span>
+                            <span class='cart-text'>سبد خرید</span>
+                            <span class='studiare-cart-number'>0</span>
+                        </a>
+                    </div>
+                </li>
+                <li> <a href='/'>صفحه اصلی</a></li>
+                <li class='menu-item-has-children'>
+                    <a href='#'>دوره ها</a>
+                    <i class='fa fa-angle-left'></i>
+                    <ul>
+                        <li>گام های یادگیری</li>
+                        <li>گام های یادگیری</li>
+                        <li>گام های یادگیری</li>
+                        <li>گام های یادگیری</li>
+                    </ul>
+                </li>
+                <li><a href='#'>بلاگ</a></li>
+                <li><a href='#'>تالار گفتمان</a></li>
+                <li><a href='#'>کانال تلگرام</a></li>
+
+            </ul>
+        </nav>
+        <!-- Hamburger-menu-->
+
+        <!-- page-title -->
+            <div class="page-title">
+                <div class="row">               
+                    <div class="container">
+                        <h2>اموزش React Native</h2>
+                        <nav class="breadcrumb">
+                            <a href="#">خانه</a>
+                            <i class="fa fa-angle-left"></i>
+                            <a href="#">دوره ها</a>
+                            <i class="fa fa-angle-left"></i>
+                            <a href="#">دوره های آموزشی</a>
+                            <i class="fa fa-angle-left"></i>
+                            <a href="#">آموزش React Native</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        <!-- page-title -->
+        <!-- Container -->
+            <div class="container course-container">
+                <!-- Course-row -->
+                    <div class="row course-row">
+                        <!-- course-info -->
+                            <div class="course-info">
+                                <div class="pic-course">
+                                    <img src="https://reactapp.ir/wp-content/uploads/digikala_course.png" alt="digikal-course" />
+                                </div>
+                                <!-- course-content -->
+                                    <div class="course-content">
+                                        <div class="study-mode">
+                                            <div class="study-mode-btn">
+                                                <i class="fas fa-expand-arrows-alt"></i>
+                                                <div class="study-mode-text">حالت مطالعه</div>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            در این دوره آموزش react native – ساخت اپلیکیشن فروشگاهی مشابه دیجی کالا با استفاده از تکنولوژی های react native، react، nodejs، mongodb و graphql یک اپلیکیشن فروشگاهی مشابه دیجی کالا (react native) به همراه پنل مدیریت (react) و API برای اتصال به سرور (nodejs ، mongodb و graphql) توسعه خواهیم داد.
+                                        </p>
+                                        <p>
+                                            هدف ما در reactapp از ابتدا ارائه آموزش های کاربردی و تخصصی در حوزه جاوااسکریپت برای ورود به بازار کار بوده و با توجه به درخواست شما کاربران عزیز و لزوم وجود چنین دوره ای، تصمیم بر آماده سازی این آموزش گرفتیم تا شما با آمادگی کامل به عنوان یک full-stack developer وارد بازار کار شوید.
+                                        </p>
+                                        <p>
+                                            با توجه به اینکه در زمان ضبط دوره، آخرین نسخه React Navigation، نسخه 4 بوده است، به همین دلیل می توانید به صورت رایکان در دوره React Navigation 5 ثبت نام کنید و از آخرین تغییرات این پکیج در پروژه های خودتون استفاده کنید.
+                                        </p>
+                                        <hr />
+                                        <h4>
+                                            هدیه ویژه برای کاربران این دوره :
+                                        </h4>
+                                        <p>
+                                            در پایان این دوره پروژه بر روی سرویس لیارا آپلود خواهد شد. به همین منظور برای تمامی کاربرانی که دوره طراحی اپلیکیشن فروشگاهی را تهیه کنند، با توجه به همکاری وب سایت reactapp.ir و سرویس لیارا حساب کاربری آن ها در لیارا به مبلغ 50 هزار تومان شارژ خواهد شد که فرصت بسیار مناسبی است.
+                                        </p>
+                                        <p>
+                                            برای آشنایی با نحوه دریافت این هدیه می توانید پست هدیه ویژه کاربران دوره NodeJS و ReactJS| پنجاه هزار تومان اعتبار سرویس لیارا را مطالعه کنید.
+                                        </p>
+                                        <!-- COURSE-SECTION -->
+                                            
+                                        <!-- COURSE-SECTION -->
+                                        <!-- COURSE-SECTION -->
+
+                                        <!-- COURSE-SECTION -->
+                                        <!-- COURSE-SECTION -->
+
+                                        <!-- COURSE-SECTION -->
+                                        <!-- COURSE-SECTION -->
+                                    </div>                   
+                                <!-- course-Section -->
+                                
+                            </div>
+                        <!-- course-info -->
+
+                        <!-- course-detail-info -->
+                        <div class="course-detail-info">
+                                
+                        </div>
+                        <!-- course-detail-info -->
+                    </div>
+                <!-- Course-row -->
+                <!-- footer -->            
+                    <footer>
+                        <div class="row">
+                            <!-- footer-widget-col -->
+                                <div class="footer-widget-col">
+                                    <!-- contact -->
+                                        <div class="contact">
+                                            <h5 class="contact-title">ارتباط با ما</h5>
+                                            <ul>
+                                                <li>
+                                                    <div class="contact-info-icon"><i class="fas fa-mobile"></i></div>
+                                                    <div class="contact-info-value">09150274110</div>
+                                                </li>
+                                                <li>
+                                                    <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                                                    <div class="contact-info-value"><a href="mailto:contact@reactapp.ir">contact@reactapp.ir</a></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    <!-- contact -->
+                                    <!-- social-network -->
+                                        <div class="social-network">
+                                            <i class="fab fa-telegram"></i>
+                                            <i class="fab fa-instagram"></i>
+                                            <i class="fab fa-twitter"></i>
+                                        </div>
+                                    <!-- social-network -->
+                                    <!-- quick access -->
+                                        <div class="quick-access">
+                                            <h5 class="title"> دسترسی سریع</h5>
+                                            <ul>
+                                                <li>
+                                                    <span>بلاگ</span>
+                                                </li>
+                                                <li>
+                                                    <span>تله فیلم آموزشی</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    <!-- quick access -->
+                                </div>
+                            <!-- footer-widget-col -->
+                            <!-- footer-widget-col -->
+                                <div class="footer-widget-col">
+                                    <!-- text -->
+                                    <div class="text">
+                                        <p>
+                                            تیم reactapp تمام تلاش خودش رو انجام میده تا محتوایی با کیفیت و به روز رو در اختیار علاقه مندان به حوزه جاوااسکریپت قرار بده. چیدمان تمامی آموزش های ویدئویی و مقالات به نحوی هست که شمارو به سمت بازار کار سوق بده تا هر چه سریع تر به عنوان یک نیرو فنی در بازار کار مشغول به فعالیت شده و به درآمد زایی برسید.
+                                        </p>
+                                    </div>
+                                    <!-- text -->
+                                    <!-- bank-portal -->
+                                    <div class="bank-portal">
+                                        <img src="1.svg" alt="zarinpal" />
+                                        <img src="2.svg" alt="pa" />
+
+                                    </div>
+                                    <!-- bank-portal -->
+                                </div>
+                            <!-- footer-widget-col -->
+
+                        </div>
+                        <!-- copyright -->
+                            <div class="copy-right">
+                                <p>
+                                    کلیه حقوق محفوظ و متعلق به reactapp.ir می باشد
+                                </p>
+                            </div>
+                        <!-- copyright -->  
+                    </footer>          
+                <!-- footer -->
+            </div>
+        <!-- Container -->
+        
+        <!-- backToTop-->
+         <div class='back-to-top'>
+            <i class='fa fa-angle-up'></i>
+         </div>
+        <!-- backToTop-->
+        <!--popup -->
+        <div class="popup">
+            <div class="header">
+                <h2>ورود</h2>
+                <i class="fa fa-times" id='closePopup'></i>
+            </div>
+            <form class="form" id='form'>
+                <div class='form-control'>
+                    <lable>نام کاربري</lable>
+                    <input 
+                    type='email' 
+                    id='username' 
+                    placeholder='exampl.com'
+                    />
+                    <i class='fas fa-check-circle'></i>
+                    <i class='fas fa-exclamation-circle'></i>
+                    <small>پيغام خطا </small>
+                </div>
+                <div class='form-control'>
+                    <lable>رمز عبور</lable>
+                    <input 
+                    type='password' 
+                    id='password' 
+                    placeholder='*********'
+                    />
+                    <i class='fas fa-check-circle'></i>
+                    <i class='fas fa-exclamation-circle'></i>
+                    <small>پيغام خطا </small>
+                </div>
+                <div class='form-control'>
+                    <div id='recaptcha-box'>
+                        <div class="g-recaptcha" data-sitekey='6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'>
+                        </div>
+                        <small>
+                        </small>
+                    </div>
+                </div>
+                <div class='form-control'>
+                    <button>
+                        ورود
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!--popup -->
+    
+        <script src="https://www.google.com/recaptcha/api.js?hl= fa" async defer></script>
+        <script src="course.js"></script>
+    </body>
+</html>
+

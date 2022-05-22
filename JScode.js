@@ -1,4 +1,7 @@
 ﻿// JavaScript source code
+
+//const { createWriteStream } = require("fs");
+
 //////////////////////////////////////////////////////////////////////////////////////////
 window.onload=function(){
 //Selectors
@@ -214,14 +217,22 @@ window.onload=function(){
 
 	/*sticky nav*/
 		window.addEventListener('scroll',function(){
+			
 			if(window.scrollY>=globalHeader.offsetHeight){
-				globalHeader.style.position='fixed'
+				globalHeader.style.position='fixed';
 			}else{
-				globalHeader.style.position='relative'
+				globalHeader.style.position='relative';
 			}
+			
 			const opacity=window.getComputedStyle(featureCourse).getPropertyValue('opacity')
-			//console.log(window.scrollY,featureCourse.scrollHeight)
-			if(window.scrollY>featureCourse.scrollHeight/2){
+			let height=window.getComputedStyle(featureCourse).getPropertyValue('height')
+			
+			height=Number(height.match(/\d+/));
+			let slideAt=window.scrollY+window.innerHeight-(height/2)
+			const rect=featureCourse.getBoundingClientRect();
+
+			//console.log('scrollY:'+window.scrollY,'innerHeight:'+window.innerHeight,'FeaturedCourse Height:'+height)
+			if(slideAt>rect.top){
 				if (opacity<1){
 					//console.log('test')
 					featureCourse.classList.add('active')
@@ -267,21 +278,139 @@ window.onload=function(){
 	/*shopping cart*/
 	const shoppingCartIcon=document.querySelector('.fa-shopping-bag');
 	const shoppingCartBox=document.querySelector('.shopping-cart-box');
-
+	
+	const shoppingCartItems=document.querySelector('.shopping-cart-items');
 	shoppingCartIcon.addEventListener('click',toggleShoppingCartBox);
 
 	function toggleShoppingCartBox(){
 		shoppingCartBox.classList.toggle('active');
 	}
 
-	const cousesPrice=shoppingCartBox.querySelectorAll('.item-price');
+	//calculating sum of items in shopping cart
+	function calculateSumShoppingCartItems(){
+		const cousesPrice=shoppingCartBox.querySelectorAll('.item-price');
+		const reactappCartNumber=topbar.querySelector('.reactapp-cart-number');
+		const topBarCartNumber=topbar.querySelector('.topbar-items-mobile .reactapp-cart-number');
+		const navCartNumber=hamburgerMenu.querySelector('.studiare-cart-number');
+		reactappCartNumber.innerText=cousesPrice.length;
+		topBarCartNumber.innerText=cousesPrice.length;
+		navCartNumber.innerText=cousesPrice.length;
 
-	let sum=0;
-	cousesPrice.forEach(course=>{
-		sum+=Number(course.innerText.match(/\d+/))
+		let sum=0;
+		cousesPrice.forEach(course=>{
+			sum+=Number(course.innerText.match(/\d+/))
 	
+		})
+		const totalShoppingCart=shoppingCartBox.querySelector('.shopping-cart-total');
+		totalShoppingCart.innerText=`${sum} تومان`
+	}
+	calculateSumShoppingCartItems()
+
+	
+
+	//delete shopping cart item
+	shoppingCartItems.addEventListener('click',deleteCartItem)
+
+	function deleteCartItem(e){
+		const Item=e.target;
+		if(Item.className==='fas fa-times'){
+			const Selectedcourse=Item.parentElement;
+			Selectedcourse.remove();
+			calculateSumShoppingCartItems()
+		}
+	}
+
+	//Add item to shopping cart
+	const products=document.querySelectorAll('.featured-course-container .add-to-cart')
+	
+
+	products.forEach((item)=>{
+		item.addEventListener('click',addToBasket)
 	})
-	const totalShoppingCart=shoppingCartBox.querySelector('.shopping-cart-total');
-	totalShoppingCart.innerText=`${sum} تومان`
+	
+	function addToBasket(e){
+		e.preventDefault();
+		const course=e.target.parentElement.parentElement.parentElement
+		const imageCourse=course.querySelector('.thumnail-course-holder img').src;
+		const courseTitle = course.querySelector('.course-title a').innerText;
+		let coursePrice=course.querySelector('.amount').innerText;
+		console.log(imageCourse,courseTitle,coursePrice)
+		if(coursePrice==='رایگان'){
+			coursePrice=0;
+		}else{
+			coursePrice=Number(coursePrice);
+		}
+		createItem(imageCourse,courseTitle,coursePrice)	
+	}
+
+	function createItem(imageCourse,courseTitle,coursePrice){
+		const cartItemElement=document.createElement('div');
+		cartItemElement.className='shopping-cart-item';
+		cartItemElement.innerHTML=`<i class='fas fa-times'> </i>
+		<img src='${imageCourse}' alt='${courseTitle}'/>
+		<div class='cart-item-content'>
+			<span class='item-name'>${courseTitle}</span>
+			<span class='item-price'>${coursePrice}</span>
+		</div> `
+		shoppingCartItems.appendChild(cartItemElement)
+		calculateSumShoppingCartItems()
+
+	}
 	/*shopping cart*/
+
+	/* newest courses slider */
+	const Slider= document.querySelector('.course-container');
+	const Carousel=document.querySelector('.newest-course');
+	const courseItems=document.querySelectorAll('.course-container .course');
+	const next=document.querySelector('.newest-courses-container .fa-angle-right');
+	const prev=document.querySelector('.newest-courses-container .fa-angle-left');
+	const width=window.getComputedStyle(courseItems[0]).getPropertyValue('width');
+	let direction;
+	
+	next.addEventListener('click',function(){
+		direction=-1;
+		Carousel.style.justifyContent='flex-start';
+		Slider.prepend(Slider.lastElementChild);
+		Slider.style.transform=`translate(-${width})`;
+		Slider.style.transition = 'all 300ms';
+	})
+	
+	prev.addEventListener('click',function(){
+		//if(direction===-1){
+			direction = 1;
+			//console.log(Slider.firstElementChild)
+			//Slider.appendChild(Slider.firstElementChild)
+			//console.log(Slider.firstElementChild)
+		//}
+		
+		Carousel.style.justifyContent='flex-end';
+		Slider.appendChild(Slider.firstElementChild);		
+		Slider.style.trasform=`translate(${width})`;
+		Slider.style.transition = 'all 0.5s ease';
+		
+	})
+
+	/* newest courses slider */
+
+	/* user-comments */
+	const comments=document.querySelectorAll('.comments-container .comment')
+	const commentsContainer=document.querySelector('.comments-container')
+	const dotsContainer=document.querySelector('.dots-container')
+	comments.forEach((item,index)=>{
+		const span=document.createElement('span');
+		span.classList.add('dots');
+		span.setAttribute('position',index);
+		span.addEventListener('click',slideComment)
+		dotsContainer.appendChild(span);
+	})
+
+	let commentWidth=window.getComputedStyle(comments[0]).getPropertyValue('width')
+	commentWidth=Number(commentWidth.match(/\d+/))
+	function slideComment(e){
+		const position=e.target.getAttribute('position')
+		commentsContainer.style.transform=`translateX(-${position*commentWidth}px)`
+		dotsContainer.querySelectorAll('.dots').forEach(item=>item.style.opacity='0.5')
+		e.target.style.opacity='1'
+	}
+	/* user-comments */
 }
