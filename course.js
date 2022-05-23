@@ -28,7 +28,6 @@ window.onload=function(){
         const topbar=document.querySelector('.topbar');
         const searchInput=document.querySelector('.search-input');
         const featureCourse=document.querySelector('.featured-course');
-        const mainPicContainer=document.querySelector('.main-pic-Container');
         const backToTop=document.querySelector('.back-to-top');
         
     
@@ -192,6 +191,11 @@ window.onload=function(){
             recognition.addEventListener('end',recognition.start)
             recognition.start()
         }
+
+        function goToTop(){
+            window.scrollTo({top:0,behavior:`smooth`})
+        }
+
         /*animation border for menu item*/
         const menuItems=document.querySelectorAll('.nav-menu li')
         const span=document.createElement('span');
@@ -209,13 +213,16 @@ window.onload=function(){
             span.style.transform=`translate(${left}px,${bottom}px)`;
         }
     
-        function goToTop(){
-            window.scrollTo({top:0,behavior:`smooth`})
-        }
-    
         /*animation border for menu item*/
     
         /*sticky nav*/
+        const courseInfo=document.querySelector('.course-info');
+        const courseContent=document.querySelector('.course-content');
+        const studyMode=document.querySelector('.study-mode');
+        const courseDetailInfo=document.querySelector('.course-detail-info');
+
+
+
             window.addEventListener('scroll',function(){
                 
                 if(window.scrollY>=globalHeader.offsetHeight){
@@ -223,9 +230,6 @@ window.onload=function(){
                 }else{
                     globalHeader.style.position='relative';
                 }
-                
-                
-
 
                 //back-to-top
                 const opacitybacktotop=window.getComputedStyle(backToTop).getPropertyValue('opacity')
@@ -236,6 +240,31 @@ window.onload=function(){
                 }else{
                     backToTop.classList.remove('active');
                 }			
+                
+                //console.log(window.scrollY, courseContent.offsetTop+80,courseInfo.offsetHeight)
+
+                if(window.scrollY>courseContent.offsetTop+80 && window.scrollY+20<courseInfo.offsetHeight){
+                    studyMode.style.position="fixed";
+                    studyMode.style.right='100px';
+                    studyMode.style.top=`${studyMode.offsetHeight/4}px`
+                }else if(window.scrollY<courseContent.offsetTop+80){
+                    studyMode.style.position='absolute';
+                    studyMode.style.right='-54px';
+                    studyMode.style.top='0';
+                }else if(window.scrollY+20>courseInfo.offsetHeight){
+                    studyMode.style.position='absolute';
+                    studyMode.style.right='-54px';
+                    studyMode.style.top=`${courseContent.offsetHeight-40}px`;
+                }
+                
+                /*if(window.scrollY>courseDetailInfo.parentElement.offsetTop && window.scrollY<courseContent.offsetHeight+50){
+                    courseDetailInfo.style.position='fixed';
+                    console.log('yes')
+                    //courseDetailInfo.style.left='50px';
+                    courseDetailInfo.style.top='0';
+                    //courseDetailInfo.parentElement.classList.add('fixed')
+                }*/
+
                 
             })
         /*sticky nav*/
