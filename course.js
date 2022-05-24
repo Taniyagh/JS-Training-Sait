@@ -420,5 +420,28 @@ window.onload=function(){
 
 
         /* Study-mode */
+
+        /*accordian*/
+            const accordiansIcon=document.querySelectorAll('.course-section .fa-chevron-down')
+            accordiansIcon.forEach(item=>item.addEventListener('click',accordianToggle))
+
+            function accordianToggle(event){
+                const icn=event.target;
+                const courseSection=icn.parentElement.parentElement;
+                const panelGroup=courseSection.querySelector('.panel-group');
+                const height=window.getComputedStyle(panelGroup).getPropertyValue('height');
+
+                if(height==='0px'){
+                    panelGroup.style.height='auto';
+                    panelGroup.style.transform='scaleY(1)'
+                    icn.style.transform='rotate(180deg)'
+                }else{
+                    panelGroup.style.height='0';
+                    panelGroup.style.transform='scaleY(0)'
+                    icn.style.transform='rotate(360deg)'
+                }
+            }
+            console.log(accordiansIcon)
+        /*accordian*/
     }
     
