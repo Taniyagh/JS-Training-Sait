@@ -351,9 +351,56 @@ window.onload=function(){
     
         }
         /*shopping cart*/
-    
         
-    
+        /* magnify */
+
+        //IIFE
+        const magnify=(function(){
+            const picCourse=document.querySelector('.course-info .pic-course');
+            const imgCourse=picCourse.querySelector('img');
+            const Glass=document.createElement('div');
+            const glassDimension=150;
+
+            let IsVisible=false;
+            Glass.classList.add('glass');
+            Glass.style.width=`${glassDimension}px`;
+            Glass.style.height=`${glassDimension}px`;
+            Glass.style.backgroundImage=`url(${imgCourse.src})`;
+
+            picCourse.append(Glass);
+
+            imgCourse.addEventListener('mouseover',function(){
+                Glass.style.display='block';
+                IsVisible=true;
+                //console.log('true')
+
+            })
+
+            imgCourse.addEventListener('mouseout',function(){
+                Glass.style.display='none';
+                IsVisible=false;
+                //console.log('false')
+            })
+
+            picCourse.addEventListener('mousemove',function(event){
+                if(IsVisible){
+                    const mouseX=event.clientX;
+                    const mouseY=event.clientY;
+                    const ImgCoordinates=imgCourse.getBoundingClientRect();
+                    const {left,top}=ImgCoordinates;
+                    const bgX=100*(mouseX-left)/imgCourse.offsetWidth;
+                    const bgY=100*(mouseY-top)/imgCourse.offsetHeight;
+
+                    Glass.style.top=`${mouseY-top-glassDimension/2}px`;
+                    Glass.style.left=`${mouseX-left-glassDimension/2}px`;
+                    Glass.style.backgroundPosition=`${bgX}% ${bgY}%`;
+
+                }
+            })
+
+        })()
+        
+        magnify()
         
     }
     
