@@ -399,8 +399,26 @@ window.onload=function(){
             })
 
         })()
-        
-        magnify()
-        
+
+        /* magnify */
+        /* Study-mode */
+            const studyModebtn=document.querySelector('.study-mode-btn');
+            const courseDetailInfoContainer=document.querySelector('.course-detil-info-container');
+            let isActive=false;
+            studyModebtn.addEventListener('click',function(){
+                isActive=!isActive;
+                if(isActive){
+                    courseInfo.style.width='80%';
+                    courseDetailInfoContainer.style.display='none'
+                }else{
+                    courseInfo.style.width='60%';
+                    courseDetailInfoContainer.style.display='block'
+                }
+                
+            })
+
+
+
+        /* Study-mode */
     }
     

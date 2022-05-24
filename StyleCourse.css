@@ -1364,7 +1364,7 @@ footer .row{
 	text-align: center;
 	top:150px;
 	-webkit-transition:all 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out;
+	transition: all 1s ease-in-out;
 	cursor:pointer;
 	display:flex;
 	flex-flow: column;
