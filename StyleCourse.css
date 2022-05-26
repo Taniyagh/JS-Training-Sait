@@ -1306,6 +1306,10 @@ footer .row{
 	justify-content: center !important;
 }
 
+.course-row.fixed{
+	flex-flow:column !important;
+}
+
 /*.course-row{
 	flex-flow: column !important;
 }
@@ -1479,6 +1483,8 @@ footer .row{
 	width: 40%;
     background-color: transparent;
     padding: 0px!important;
+	left: 20px;
+	position:relative;
 }
 	
 /*

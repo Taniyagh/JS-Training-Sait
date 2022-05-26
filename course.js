@@ -29,7 +29,7 @@ window.onload=function(){
         const searchInput=document.querySelector('.search-input');
         const featureCourse=document.querySelector('.featured-course');
         const backToTop=document.querySelector('.back-to-top');
-        
+        const courseDetailInfoContainer=document.querySelector('.course-detil-info-container');
     
         //Event listeners
         courses.addEventListener('mouseover',function(){
@@ -220,7 +220,8 @@ window.onload=function(){
         const courseContent=document.querySelector('.course-content');
         const studyMode=document.querySelector('.study-mode');
         const courseDetailInfo=document.querySelector('.course-detail-info');
-
+        
+        //courseDetailInfoContainer
 
 
             window.addEventListener('scroll',function(){
@@ -265,7 +266,22 @@ window.onload=function(){
                     //courseDetailInfo.parentElement.classList.add('fixed')
                 }*/
 
-                
+                if(scrollY+40>courseDetailInfoContainer.parentElement.offsetTop && window.scrollY<courseContent.offsetHeight+70){
+                    courseDetailInfoContainer.style.position='fixed';
+                    courseDetailInfoContainer.style.left='20px';
+                    courseDetailInfoContainer.style.top='0px';
+                    courseDetailInfoContainer.parentElement.classList.add('fixed');
+                    
+                }else if (window.scrollY>=courseContent.offsetHeight+70){
+                    courseDetailInfoContainer.style.position='relative';
+                    courseDetailInfoContainer.parentElement.classList.remove('fixed');
+                    courseDetailInfoContainer.style.top=`${courseInfo.offsetHeight-courseDetailInfoContainer.offsetHeight}px`;
+                    courseDetailInfoContainer.style.left='20px';
+                }else{
+                    courseDetailInfoContainer.style.position='relative';
+                    courseDetailInfoContainer.parentElement.classList.remove('fixed');
+                    courseDetailInfoContainer.style.left='20px';
+                }
             })
         /*sticky nav*/
     
@@ -403,7 +419,7 @@ window.onload=function(){
         /* magnify */
         /* Study-mode */
             const studyModebtn=document.querySelector('.study-mode-btn');
-            const courseDetailInfoContainer=document.querySelector('.course-detil-info-container');
+            
             let isActive=false;
             studyModebtn.addEventListener('click',function(){
                 isActive=!isActive;
@@ -443,5 +459,6 @@ window.onload=function(){
             }
             console.log(accordiansIcon)
         /*accordian*/
-    }
+        
+}
     
